@@ -1,3 +1,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-4xl font-semibold 
+    }
+    h2 {
+        @apply text-2xl font-semibold
+    }
+    body {
+        /* @apply snap-y snap-mandatory overflow-auto bg-black */
+    }
+    ul > li {
+        list-style-type: disc;
+        margin-left: 3em;
+    }
+
+    /* Scrollbar */
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: black;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #555;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #888;
+    }
+
+    #sidebar::-webkit-scrollbar {
+        width: 5px;
+    }
+}
