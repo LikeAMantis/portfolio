@@ -7,7 +7,7 @@
         @apply text-4xl font-semibold 
     }
     h2 {
-        @apply text-2xl font-semibold
+        @apply text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold
     }
     body {
         /* @apply snap-y snap-mandatory overflow-auto bg-black */

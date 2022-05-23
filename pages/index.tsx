@@ -5,9 +5,9 @@ import Header from '../components/Header'
 import ProjectSection from '../components/ProjectSection'
 
 const projects = [
-    { id: 'a', img: 'https://picsum.photos/seed/1/1920/1080' },
-    { id: 'b', img: 'https://picsum.photos/seed/2/1920/1080' },
-    { id: 'c', img: 'https://picsum.photos/seed/3/1920/1080' },
+    { id: 'Product Finder', img: 'https://picsum.photos/seed/1/1920/1080' },
+    { id: 'Spotify Next', img: 'https://picsum.photos/seed/2/1920/1080' },
+    { id: 'Task Tracker', img: 'https://picsum.photos/seed/3/1920/1080' },
 ]
 
 const Home: NextPage = () => {
