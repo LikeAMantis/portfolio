@@ -1,8 +1,8 @@
 import React, { Ref, RefObject, useEffect, useRef } from 'react'
 
 interface Props {
-    showUp: boolean
-    showDown: boolean
+    showUp?: boolean
+    showDown?: boolean
 }
 
 const ArrowNavigation = ({ showUp, showDown }: Props) => {

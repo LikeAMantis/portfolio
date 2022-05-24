@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { Project } from '../lib/projects'
+import Image from 'next/image'
 
 interface Props {
-    project: { img: string; id: string }
+    project: Project
 }
 
 const section = {
-    hidden: { opacity: 0.5 },
+    hidden: {},
     show: {
-        opacity: 1,
         transition: {
             delay: 0.2,
             delayChildren: 0.5,
@@ -33,6 +34,16 @@ const listItem = {
     show: { opacity: 1, x: '0%' },
 }
 
+const image = {
+    hidden: { opacity: 1 },
+    show: { opacity: 0.4 },
+}
+
+const side = {
+    hidden: { x: '100%' },
+    show: { x: '0%', transition: { duration: 0.3 } },
+}
+
 const ProjectSection = ({ project }: Props) => {
     const ref = useRef()
     const [isVisible, setIsVisible] = useState(false)
@@ -52,32 +63,67 @@ const ProjectSection = ({ project }: Props) => {
     return (
         <motion.section
             ref={ref}
-            className="relative h-full snap-start overflow-x-hidden"
+            className="relative h-full snap-start overflow-hidden"
             variants={section}
+            initial="hidden"
             animate={isVisible ? 'show' : 'hidden'}
         >
-            <img
-                className="absolute h-full w-full object-cover"
+            {/* <motion.div className="h-full " variants={image}> */}
+            <Image
+                className="absolute h-full w-full object-cover opacity-40"
                 src={project.img}
                 alt=""
+                layout="fill"
             />
+            {/* </motion.div> */}
             {/* Overlay */}
-            <div className="relative ml-auto flex h-full w-full items-start justify-between xl:container">
-                <motion.h2 variants={item} className="bg-opacity-50 p-4">
+            <div className="relative mx-auto flex h-full w-full items-start justify-between">
+                <motion.h2
+                    variants={item}
+                    className="mt-10 ml-10 bg-black bg-opacity-80 p-4 capitalize backdrop-blur-lg lg:ml-[15%] "
+                >
                     {project.id}
                 </motion.h2>
+                {/* Technologies */}
                 <motion.div
                     variants={item}
-                    className="h-full bg-black bg-opacity-50 p-4"
+                    className="absolute right-1/3 bottom-1/3 translate-x-1/2 translate-y-1/2 bg-black bg-opacity-80 p-4 backdrop-blur-lg"
                 >
-                    <p className="text-lg font-semibold">Technologies:</p>
+                    <p className="text-lg font-semibold md:text-xl">
+                        Technologies:
+                    </p>
                     <ul>
-                        <motion.li variants={listItem}>next.js</motion.li>
-                        <motion.li variants={listItem}>tailwindcss</motion.li>
-                        <motion.li variants={listItem}>framer-motion</motion.li>
-                        <motion.li variants={listItem}>mysql</motion.li>
+                        {project.technologies.map((tech) => (
+                            <motion.li
+                                className="md:text-lg"
+                                variants={listItem}
+                            >
+                                {tech}
+                            </motion.li>
+                        ))}
                     </ul>
                 </motion.div>
+                {/* Go to App */}
+                <motion.a
+                    href={project.url}
+                    target="_blank"
+                    variants={side}
+                    className="right-0 flex h-full cursor-pointer flex-col items-center justify-center bg-gradient-to-l from-black to-transparent px-4"
+                >
+                    <p className="top-1/2 text-xl font-bold">Go to App</p>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-8"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                    >
+                        <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
+                            clipRule="evenodd"
+                        />
+                    </svg>
+                </motion.a>
             </div>
         </motion.section>
     )
