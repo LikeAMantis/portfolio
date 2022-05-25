@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Project } from '../lib/projects'
+import { Project } from '../../lib/projects'
 import Image from 'next/image'
 
 interface Props {
@@ -45,11 +45,12 @@ const side = {
 }
 
 const ProjectSection = ({ project }: Props) => {
-    const ref = useRef()
+    const ref = useRef<HTMLElement>(null)
     const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
-        const target = ref.current
+        const target: HTMLElement | null = ref.current
+        if (!target) return
 
         const observer = new IntersectionObserver(
             ([{ isIntersecting }]) => setIsVisible(isIntersecting),
@@ -70,7 +71,7 @@ const ProjectSection = ({ project }: Props) => {
         >
             {/* <motion.div className="h-full " variants={image}> */}
             <Image
-                className="absolute h-full w-full object-cover opacity-40"
+                className="absolute h-full w-full object-cover brightness-50"
                 src={project.img}
                 alt=""
                 layout="fill"
@@ -78,6 +79,7 @@ const ProjectSection = ({ project }: Props) => {
             {/* </motion.div> */}
             {/* Overlay */}
             <div className="relative mx-auto flex h-full w-full items-start justify-between">
+                {/* Project Name */}
                 <motion.h2
                     variants={item}
                     className="mt-10 ml-10 bg-black bg-opacity-80 p-4 capitalize backdrop-blur-lg lg:ml-[15%] "

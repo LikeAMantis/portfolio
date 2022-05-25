@@ -8,12 +8,12 @@ const Home: NextPage = () => {
     return (
         <div className="grid h-screen grid-rows-[auto_1fr]  bg-skin-fill text-skin-base">
             <Header />
-            <main className="relative snap-y snap-proximity space-y-10 overflow-y-auto bg-black">
+            <main className="relative snap-y snap-proximity space-y-6 overflow-y-auto bg-white">
                 {projects.map((project) => (
                     <ProjectSection project={project} />
                 ))}
             </main>
-            <ArrowNavigation />
+            {/* <ArrowNavigation /> */}
         </div>
     )
 }

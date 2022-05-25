@@ -2,9 +2,10 @@ import productFinderImg from '../public/imgs/product-finder.png'
 import taskTrackerImg from '../public/imgs/task-tracker.png'
 import spotifyImg from '../public/imgs/spotify.png'
 import habitTragerImg from '../public/imgs/habit-tracker.png'
+import { StaticImageData } from 'next/image'
 
 export interface Project {
-    img: string
+    img: StaticImageData | string
     id: string
     technologies: string[]
     url: string
@@ -22,7 +23,7 @@ const tech = {
     javascript: 'javascript',
 }
 
-export const projects = [
+export const projects: Project[] = [
     {
         id: 'product finder',
         img: productFinderImg,
