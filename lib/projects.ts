@@ -12,12 +12,12 @@ export interface Project {
 }
 
 const tech = {
-    next: 'next.js',
-    tailwind: 'tailwindcss',
-    mysql: 'MySql',
-    framer: 'Framer-Motion',
-    puppeteer: 'puppeteer.js',
+    next: 'react (next.js)',
     react: 'react',
+    tailwind: 'tailwindcss',
+    mysql: 'MySQL',
+    framer: 'framer-motion',
+    puppeteer: 'puppeteer.js',
     typescript: 'typescript',
     nextAuth: 'nextAuth',
     javascript: 'javascript',
@@ -35,7 +35,7 @@ export const projects: Project[] = [
             tech.puppeteer,
             tech.typescript,
         ],
-        url: 'https://product-finder-next.herokuapp.com/',
+        url: 'https://product-finder.vercel.app/',
     },
     {
         id: 'spotify next',

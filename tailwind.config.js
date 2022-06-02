@@ -9,7 +9,7 @@ module.exports = {
     ],
     theme: {
         extend: {
-            colors: {},
+            colors: { accent: colors.yellow[300] },
             backgroundColor: {
                 skin: {
                     fill: gray[800],

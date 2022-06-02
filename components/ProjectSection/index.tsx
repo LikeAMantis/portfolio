@@ -69,20 +69,18 @@ const ProjectSection = ({ project }: Props) => {
             initial="hidden"
             animate={isVisible ? 'show' : 'hidden'}
         >
-            {/* <motion.div className="h-full " variants={image}> */}
             <Image
                 className="absolute h-full w-full object-cover brightness-50"
                 src={project.img}
                 alt=""
                 layout="fill"
             />
-            {/* </motion.div> */}
             {/* Overlay */}
             <div className="relative mx-auto flex h-full w-full items-start justify-between">
                 {/* Project Name */}
                 <motion.h2
                     variants={item}
-                    className="mt-10 ml-10 bg-black bg-opacity-80 p-4 capitalize backdrop-blur-lg lg:ml-[15%] "
+                    className="mt-10 ml-10 rounded-full bg-black bg-opacity-80 p-4 capitalize backdrop-blur-lg lg:ml-[15%] "
                 >
                     {project.id}
                 </motion.h2>
