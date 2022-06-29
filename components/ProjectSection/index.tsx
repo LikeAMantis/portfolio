@@ -1,10 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-import { Project } from '../../lib/projects'
-import Image from 'next/image'
+import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { Project } from "../../lib/projects";
+import Image from "next/image";
 
 interface Props {
-    project: Project
+    project: Project;
 }
 
 const section = {
@@ -16,7 +16,7 @@ const section = {
             staggerChildren: 0.5,
         },
     },
-}
+};
 
 const item = {
     hidden: { opacity: 0 },
@@ -27,39 +27,39 @@ const item = {
             staggerChildren: 0.3,
         },
     },
-}
+};
 
 const listItem = {
-    hidden: { opacity: 0, x: '100%' },
-    show: { opacity: 1, x: '0%' },
-}
+    hidden: { opacity: 0, x: "100%" },
+    show: { opacity: 1, x: "0%" },
+};
 
 const image = {
     hidden: { opacity: 1 },
     show: { opacity: 0.4 },
-}
+};
 
 const side = {
-    hidden: { x: '100%' },
-    show: { x: '0%', transition: { duration: 0.3 } },
-}
+    hidden: { x: "100%" },
+    show: { x: "0%", transition: { duration: 0.3 } },
+};
 
 const ProjectSection = ({ project }: Props) => {
-    const ref = useRef<HTMLElement>(null)
-    const [isVisible, setIsVisible] = useState(false)
+    const ref = useRef<HTMLElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const target: HTMLElement | null = ref.current
-        if (!target) return
+        const target: HTMLElement | null = ref.current;
+        if (!target) return;
 
         const observer = new IntersectionObserver(
             ([{ isIntersecting }]) => setIsVisible(isIntersecting),
             { root: null, threshold: [0.7] }
-        )
-        observer.observe(target)
+        );
+        observer.observe(target);
 
-        return () => observer.unobserve(target)
-    }, [])
+        return () => observer.unobserve(target);
+    }, []);
 
     return (
         <motion.section
@@ -67,10 +67,10 @@ const ProjectSection = ({ project }: Props) => {
             className="relative h-full snap-start overflow-hidden"
             variants={section}
             initial="hidden"
-            animate={isVisible ? 'show' : 'hidden'}
+            animate={isVisible ? "show" : "hidden"}
         >
             <Image
-                className="absolute h-full w-full object-cover brightness-50"
+                className="absolute h-full w-full object-cover object-top brightness-50"
                 src={project.img}
                 alt=""
                 layout="fill"
@@ -80,7 +80,7 @@ const ProjectSection = ({ project }: Props) => {
                 {/* Project Name */}
                 <motion.h2
                     variants={item}
-                    className="mt-10 ml-10 rounded-full bg-black bg-opacity-80 p-4 capitalize backdrop-blur-lg lg:ml-[15%] "
+                    className="mt-10 ml-10 rounded-full bg-black bg-opacity-80 px-8 py-4 capitalize backdrop-blur-lg lg:ml-[15%] "
                 >
                     {project.id}
                 </motion.h2>
@@ -126,7 +126,7 @@ const ProjectSection = ({ project }: Props) => {
                 </motion.a>
             </div>
         </motion.section>
-    )
-}
+    );
+};
 
-export default ProjectSection
+export default ProjectSection;

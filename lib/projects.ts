@@ -1,31 +1,33 @@
-import productFinderImg from '../public/imgs/product-finder.png'
-import taskTrackerImg from '../public/imgs/task-tracker.png'
-import spotifyImg from '../public/imgs/spotify.png'
-import habitTragerImg from '../public/imgs/habit-tracker.png'
-import { StaticImageData } from 'next/image'
+import productFinderImg from "../public/imgs/product-finder.png";
+import taskTrackerImg from "../public/imgs/task-tracker.png";
+import spotifyImg from "../public/imgs/spotify2.png";
+import habitTragerImg from "../public/imgs/habit-tracker.png";
+import { StaticImageData } from "next/image";
 
 export interface Project {
-    img: StaticImageData | string
-    id: string
-    technologies: string[]
-    url: string
+    img: StaticImageData | string;
+    id: string;
+    technologies: string[];
+    url: string;
 }
 
 const tech = {
-    next: 'react (next.js)',
-    react: 'react',
-    tailwind: 'tailwindcss',
-    mysql: 'MySQL',
-    framer: 'framer-motion',
-    puppeteer: 'puppeteer.js',
-    typescript: 'typescript',
-    nextAuth: 'nextAuth',
-    javascript: 'javascript',
-}
+    next: "React (NextJS)",
+    react: "React",
+    tailwind: "TailwindCSS",
+    mysql: "MySQL",
+    framer: "Framer-Motion",
+    puppeteer: "Puppeteer",
+    typescript: "Typescript",
+    nextAuth: "NextAuth",
+    javascript: "Javascript",
+    chart: "ChartJS",
+    csshtml: "CSS/HTML",
+};
 
 export const projects: Project[] = [
     {
-        id: 'product finder',
+        id: "product finder",
         img: productFinderImg,
         technologies: [
             tech.next,
@@ -35,24 +37,24 @@ export const projects: Project[] = [
             tech.puppeteer,
             tech.typescript,
         ],
-        url: 'https://product-finder.vercel.app/',
+        url: "https://product-finder.vercel.app/",
     },
     {
-        id: 'spotify next',
+        id: "spotify next",
         img: spotifyImg,
         technologies: [tech.next, tech.nextAuth, tech.tailwind, tech.framer],
-        url: 'https://spotify-next-api.vercel.app/',
+        url: "https://spotify-next-api.vercel.app/",
     },
     {
-        id: 'task tracker',
+        id: "task tracker",
         img: taskTrackerImg,
-        technologies: [tech.react],
-        url: 'https://likeamantis.github.io/react-task-tracker/',
+        technologies: [tech.react, tech.csshtml],
+        url: "https://likeamantis.github.io/react-task-tracker/",
     },
     {
-        id: 'everyday',
+        id: "everyday",
         img: habitTragerImg,
-        technologies: [tech.javascript],
-        url: 'https://likeamantis.github.io/everyday/',
+        technologies: [tech.javascript, tech.chart, tech.csshtml],
+        url: "https://likeamantis.github.io/everyday/",
     },
-]
+];
