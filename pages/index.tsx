@@ -17,7 +17,7 @@ const aboutme: NextPage = () => {
             <section className="grid h-[480px] grid-cols-1 place-items-center lg:h-auto">
                 <div className="flex flex-col items-center space-y-2">
                     <Image
-                        className="obje rounded-[50px]"
+                        className="rounded-[50px] object-none object-top"
                         width={250}
                         height={250}
                         src={profilImg}
@@ -111,7 +111,7 @@ const aboutme: NextPage = () => {
                                     </h4>
                                     <p>
                                         BasicTraining | Specialization |
-                                        ProjectPhaseJava11 (objectoriented,
+                                        ProjectPhase (objectoriented,
                                         abstraction, lambdaexpressions,
                                         streams), Git, GitHub, IntelliJ
                                     </p>
@@ -121,10 +121,9 @@ const aboutme: NextPage = () => {
                                         Specialization:
                                     </h4>
                                     <p>
-                                        Backend (SpringBoot, Web, Data(JPA,
-                                        NoSQL), Security) and Frontend
-                                        (Javascript, HTML5 and CSS3,
-                                        Web-Development with React)
+                                        Fullstack Development (HTML, CSS,
+                                        JavaScript, REST-APIs, NodeJS, MySQL,
+                                        Security)
                                     </p>
                                 </li>
                                 <li>
